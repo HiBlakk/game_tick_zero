@@ -47,3 +47,18 @@ def current_state(state):
             print(state[i][j], end = ' ') 
         print()
 
+def check_win(state):
+    current_state(state)
+    min_index = 0 
+    max_index = 2
+    for i in range(len(state)):  
+        for j in range(len(state)):
+            
+            if i == min_index: 
+                
+                if (state[i][j] == state [i+1][j] == state[i+2][j]) and state[i][j] != '_':
+                    return (f'Выиграл {str(state[i][j])} по {j+1}-oму столбцу')
+                if j == min_index:
+                    
+                    if (state[i][j] == state [i][j+1] == state[i][j+2]) and state[i][j] != '_':
+                        return (f'Выиграл {str(state[i][j])} по {i+1}-ой строке')
